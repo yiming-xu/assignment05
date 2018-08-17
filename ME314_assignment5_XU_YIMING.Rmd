@@ -8,6 +8,7 @@ You will need to load the core library for the course textbook:
 ```{r}
 library(ISLR)
 library(caret)
+library(MASS)
 set.seed(201785066) #LSE ID
 ```
 
@@ -59,6 +60,13 @@ AutoN_test = AutoN[-trainIndex, ]
 ```
 
 (d) Perform LDA on the training data in order to predict `mpg01` using the variables that seemed most associated with `mpg01` in (b). What is the test error of the model obtained?
+
+```{r}
+trainIndex <- createDataPartition(AutoN$mpg01, p = 0.8, list = FALSE)
+
+AutoN_training = AutoN[trainIndex, ]
+AutoN_test = AutoN[-trainIndex, ]
+```
 
 (e) Perform QDA on the training data in order to predict `mpg01` using the variables that seemed most associated with `mpg01` in (b). What is the test error of the model obtained?
 
